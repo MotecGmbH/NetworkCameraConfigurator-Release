@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MotecControlProtocol</name>
+    </assembly>
+    <members>
+        <member name="M:MotecControlProtocol.MotecControlProtocolImplementation.Version">
+            <summary>
+            Returns the version of this DLL
+            </summary>
+        </member>
+        <member name="M:MotecControlProtocol.MotecControlProtocolImplementation.SendMotecCommand(System.Net.IPAddress,System.Byte,System.Byte,System.Byte,System.Byte[])">
+            <summary>
+            This will send a MotecControlProtocol message to the camera. It is not recommended to use the function unless you want to do something fishy or create a new peviously unknown property...Use the function with the enums
+            </summary>
+            <param name="targetDevice">The Target device the message shall be send to</param>
+            <param name="type">Determines if you wanrt to read or write a paramete from/to the camera</param>
+            <param name="cat">The category of the parameter you want to read/Write</param>
+            <param name="cfg">The config id corresponding to the Parameter you want to read/write</param>
+            <param name="value">The payload as a byte array this might be a Port or a IP for example</param>
+            <returns>Returns a value indicating that the command was send successfully of failed</returns>
+        </member>
+        <member name="M:MotecControlProtocol.MotecControlProtocolImplementation.SendByteArray(System.Net.IPAddress,System.Byte[])">
+            <summary>
+            Sends a custom byte array to the camera using Port 8885. This will use the same UDP clien as any other Motec command
+            </summary>
+            <param name="targetDevice">The target device the byte arrays shall be send to</param>
+            <param name="data">The data that shall be send to the camera</param>
+            <returns></returns>
+        </member>
+        <member name="M:MotecControlProtocol.MotecControlProtocolImplementation.WaitForResponse(System.Int32)">
+            <summary>
+            Will wait for the response of the camera and return it as a byte array
+            </summary>
+            <param name="timeout">the timespan the camera has time to respond</param>
+            <returns>The response from the camera, or NULL if the camera did not respond/the UDP client was not initialized</returns>
+        </member>
+        <member name="M:MotecControlProtocol.MotecControlProtocolImplementation.ReadProperty(System.Net.IPAddress,System.Byte,System.Byte,System.Boolean,System.Byte[],System.Int32)">
+            <summary>
+            Will send a Motec command of type read and return the cameras response as a byte array, byte array can be converter in a MotecControlProtocolCommand
+            </summary>
+            <param name="targetDevice">The Target device the message shall be send to</param>
+            <param name="cfg">The property we want to read</param>
+            <param name="eeprom">Decides if the current value is returned (false) or if the stored value is returned (true)</param>
+            <param name="commandPayload">Will be appended to the read command</param>
+            <param name="timeout">The timespan the camera has time to respond</param>
+            <returns></returns>
+        </member>
+        <member name="M:MotecControlProtocol.MotecControlProtocolImplementation.WriteProperty(System.Net.IPAddress,System.Byte,System.Byte,System.Boolean,System.Byte[],System.Int32)">
+            <summary>
+            Will send a Motec command of type write and return the cameras response as a byte array, byte array can be converter in a MotecControlProtocolCommand
+            </summary>
+            <param name="targetDevice">The Target device the message shall be send to</param>
+            <param name="property">The property we want to write</param>
+            <param name="eeprom">Decides if the property is changed temporaely (false) or permanently stored (true)</param>
+            <param name="commandPayload">Will be appended to the write command</param>
+            <param name="timeout">The timespan the camera has time to respond</param>
+            <returns></returns>
+        </member>
+        <member name="M:MotecControlProtocol.MotecControlProtocolImplementation.SendMotecCommandAndWaitForResponse(System.Net.IPAddress,System.Byte,System.Byte,System.Byte,System.Byte[],System.Int32)">
+            <summary>
+            Will send a motec command and return the cameras response as a byte array, byte array can be converter in a MotecControlProtocolCommand
+            </summary>
+            <param name="targetDevice">The Target device the message shall be send to</param>
+            <param name="property">The property we want to write or read</param>
+            <param name="type">Determines if you wanrt to read or write a paramete from/to the camera</param>
+            <param name="commandPayload">The payload as a byte array this might be a Port or a IP for example</param>
+            <param name="timeout">The timespan the camera has time to respond</param>
+            <returns></returns>
+        </member>
+        <member name="T:MotecControlProtocol.MotecCommand">
+            <summary>
+            Is used to bring motec commands to a "wireshark-like" appearance
+            </summary>
+        </member>
+        <member name="M:MotecControlProtocol.MotecCommand.#ctor(System.Byte[])">
+            <summary>
+            Create a now instance to help work with MotecProtocol Data
+            </summary>
+            <param name="data">The byte array you want to use as a MotecCommand</param>
+        </member>
+        <member name="P:MotecControlProtocol.MotecCommand.ProtocolVersion">
+            <summary>
+            Is usually two, will be "0" if data is NULL
+            </summary>
+        </member>
+        <member name="P:MotecControlProtocol.MotecCommand.Type">
+            <summary>
+            The Commands Type, will be zero if data cannot be casted into a MotecCommand
+            </summary>
+        </member>
+        <member name="P:MotecControlProtocol.MotecCommand.SeqenceNumber">
+            <summary>
+            The sequenc number, will be null if data cannot be casted into a MotecCommand
+            </summary>
+        </member>
+        <member name="P:MotecControlProtocol.MotecCommand.Length">
+            <summary>
+            The Commands Payload length (LEN), will be zero if data cannot be casted into a MotecCommand
+            </summary>
+        </member>
+        <member name="P:MotecControlProtocol.MotecCommand.Payload">
+            <summary>
+            The Commands payload (Data), will be NULL if data cannot be casted into a MotecCommand or if there is no payload
+            </summary>
+        </member>
+        <member name="T:MotecControlProtocol.ProtocolBase">
+            <summary>
+            Is used to bring motec commands to a "wireshark-like" appearance
+            </summary>
+        </member>
+    </members>
+</doc>
