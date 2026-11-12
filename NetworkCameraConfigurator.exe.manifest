@@ -4,7 +4,7 @@
   <description asmv2:iconFile="Style\Icons_Motec Configuration Tool_blau.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="NetworkCameraConfigurator" version="1.0.0.77" language="neutral" processorArchitecture="amd64" />
+    <assemblyIdentity name="NetworkCameraConfigurator" version="1.0.0.78" language="neutral" processorArchitecture="amd64" />
     <commandLine file="NetworkCameraConfigurator.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -127,14 +127,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NetworkCameraConfigurator.exe" size="1620992">
-      <assemblyIdentity name="NetworkCameraConfigurator" version="1.0.0.77" language="neutral" processorArchitecture="amd64" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NetworkCameraConfigurator.exe" size="1652736">
+      <assemblyIdentity name="NetworkCameraConfigurator" version="1.0.0.78" language="neutral" processorArchitecture="amd64" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Nc+IudQ7t+lnVGKYjl9f0uTSodjgQJ8oaGIMSJhJHOk=</dsig:DigestValue>
+        <dsig:DigestValue>VH1lcAT13D7MTlGgnx9fkO5KT2A5sD/kcHNExTVS3FA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -146,7 +146,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>hL13h7XKu+MMcm95jtu35by5I+G7hc3ZMEbuVA64NTI=</dsig:DigestValue>
+        <dsig:DigestValue>DA8PVUsQGwfRVfFYahbWR9m4jaE+UUdC18ubuJ5eVag=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
